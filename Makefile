@@ -1,5 +1,5 @@
 
-IMAGE_NAME = tweb
+IMAGE_NAME = s2i-tongweb
 
 build:
 	docker build -t $(IMAGE_NAME) .
