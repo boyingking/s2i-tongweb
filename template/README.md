@@ -1,3 +1,3 @@
 # Use Tongweb Template
 
-You need exex: oc create -f tongweb.json
+You need exe: oc create -f tongweb.json
