@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "tongweb-6.0",
+    "name": "tongweb-6.0-jsp-template",
     "annotations": {
       "description": "这是一个TongWeb 6.0的服务容器，支持部署您的Java Web项目",
       "tags": "tongweb,6.0,java web",
@@ -10,7 +10,7 @@
     }
   },
   "labels": {
-    "template": "tongweb-6.0"
+    "template": "tongweb-6.0-auto-jsp-template"
   },
   "objects": [
     {
@@ -32,6 +32,10 @@
             "name": "manager",
             "port": 9060,
             "targetPort": 9060
+          },{
+            "name": "https",
+            "port": 8443,
+            "targetPort": 8443
           }
         ],
         "selector": {
@@ -89,8 +93,8 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "mytest",
-              "name": "s2i-tongweb:latest"
+              "namespace": "firsted",
+              "name": "tongweb-auto-template:latest"
             }
           }
         },
@@ -141,11 +145,11 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "tongweb-app"
+                "tongweb-jsp-app"
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "namespace": "mytest",
+                "namespace": "firsted",
                 "name": "${NAME}:latest"
               }
             }
@@ -168,7 +172,7 @@
           "spec": {
             "containers": [
               {
-                "name": "tongweb-app",
+                "name": "tongweb-jsp-app",
                 "image": " ",
                 "ports": [
                   {

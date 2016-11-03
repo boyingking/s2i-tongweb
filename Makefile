@@ -1,5 +1,4 @@
-
-IMAGE_NAME = s2i-tongweb
+IMAGE_NAME = boyingking/tongweb-auto-template:latest
 
 build:
 	docker build -t $(IMAGE_NAME) .
